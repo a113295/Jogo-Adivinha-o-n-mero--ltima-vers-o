@@ -9,9 +9,7 @@ def jogo_adivinha():
 
   opcao = input("Introduz a modalidade (1 ou 2): ")
 
-  # ==========================================
-  # MODALIDADE 1: Computador pensa, Utilizador adivinha
-  # ==========================================
+
   if opcao == "1":
     numero_secreto = random.randint(0, 100)
     tentativas = 0
@@ -30,9 +28,7 @@ def jogo_adivinha():
       else:
         print("O número que pensei é Menor")
 
-  # ==========================================
-  # MODALIDADE 2: Utilizador pensa, Computador adivinha
-  # ==========================================
+
   elif opcao == "2":
     print(
         "\nPensa num número entre 0 e 100. O computador vai tentar adivinhá-lo."
@@ -44,7 +40,7 @@ def jogo_adivinha():
     tentativas = 0
 
     while True:
-      # O computador usa a estratégia de adivinhar sempre a meio (pesquisa binária)
+     
       palpite_computador = (minimo + maximo) // 2
       tentativas += 1
 
@@ -57,19 +53,19 @@ def jogo_adivinha():
         print(f"O computador acertou em {tentativas} tentativas!")
         break
       elif resposta.lower() == "maior":
-        # Se o número é maior, o mínimo sobe para cima do palpite
+       
         minimo = palpite_computador + 1
       elif resposta.lower() == "menor":
-        # Se o número é menor, o máximo desce para baixo do palpite
+        
         maximo = palpite_computador - 1
       else:
         print("Resposta inválida. Usa apenas 'Acertou', 'Maior' ou 'Menor'.")
-        tentativas -= 1  # Para não contar erros de digitação
+        tentativas -= 1  
 
   else:
     print("Opção inválida! Reinicia o programa e escolhe 1 ou 2.")
 
 
-# Executar o jogo
+
 if __name__ == "__main__":
   jogo_adivinha()
